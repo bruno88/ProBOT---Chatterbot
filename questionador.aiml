@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<!-- File: update.aiml -->
+<!-- Author: Bruno Gutierrez Ratto Clemente -->
+<!-- Last modified: August 22, 2015 -->
+<!--  -->
+<!-- The brain is released under the terms of the GNU Lesser General -->
+<!-- Public License, as published by the Free Software Foundation. -->
+<!--  -->
+<!-- This file is distributed WITHOUT ANY WARRANTY; without even the  -->
+<!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
+<!--  -->
+<!-- For more information see http://www.alicebot.org -->
+<!--  -->
+
+<!-- User name -->
+  <category>
+    <pattern> MEU NOME É *</pattern>
+    <template>
+        Ok <set name="username"><star/></set>, agora já sei seu nome! Do que vamos conversar?
+    </template>
+  </category>
+
+  <category>
+    <pattern> PODE ME CHAMAR DE *</pattern>
+    <template>
+        <srai> MEU NOME É * </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern> _ PODE ME CHAMAR DE *</pattern>
+    <template>
+        Ok <set name="username"><star index="2"/></set>, agora já sei seu nome! Do que vamos conversar?
+    </template>
+  </category>
+
+  <category>
+    <pattern> QUAL É MEU NOME </pattern>
+    <template>
+        Que pergunta estranha... Seu nome é <get name="username"/>, podemos conversar sobre algo?
+    </template>
+  </category>
+
+  <category>
+    <pattern> * QUAL É MEU NOME </pattern>
+    <template>
+        <srai> QUAL É MEU NOME </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern> * COMO EU ME CHAMO </pattern>
+    <template>
+        <srai> QUAL É MEU NOME </srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern> COMO EU ME CHAMO </pattern>
+    <template>
+        <srai> QUAL É MEU NOME </srai>
+    </template>
+  </category>
+<!--  -->
+
+<!-- Get the Bot name -->
+  <category>
+    <pattern> NOME </pattern>
+    <template>
+        Pode me chamar de Chatterbot-v1 ! Do que vamos falar hoje ?
+    </template>
+  </category>
+
+  <category>
+    <pattern> _ SEU NOME * </pattern>
+    <template> <srai> NOME </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ VOCE SE CHAMA </pattern>
+    <template> <srai> NOME </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ TE CHAMAR * </pattern>
+    <template> <srai> NOME </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ TE CHAMAR </pattern>
+    <template> <srai> NOME </srai> </template>
+  </category>
+<!-- -->
+
+<!-- Hello -->
+  <category>
+    <pattern> OLA </pattern>
+    <template>
+        <random>
+          <li>Olá ! Seja bem vindo! Do que vamos conversar hoje? </li>
+          <li>Olá, tudo bom? O que discutiremos hoje?</li>
+        </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern> OLA * </pattern>
+    <template> <srai> OLA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> OLÁ * </pattern>
+    <template> <srai> OLA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> OLÁ </pattern>
+    <template> <srai> OLA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> OI * </pattern>
+    <template> <srai> OLA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> OI </pattern>
+    <template> <srai> OLA </srai> </template>
+  </category>
+<!-- -->
+
+<!-- Goodbye -->
+  <category>
+    <pattern> TCHAU </pattern>
+    <template>
+        <random>
+          <li>Até mais! Fico aqui te esperando! </li>
+          <li>Tchau tchau! Nos vemos quando você voltar!</li>
+          <li>Tudo bem, espero ansioso para conversarmos novamente!</li>
+        </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern> _ TCHAU * </pattern>
+    <template> <srai> TCHAU </srai> </template>
+  </category>
+
+  <category>
+    <pattern> TCHAU * </pattern>
+    <template> <srai> TCHAU </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ ATE MAIS * </pattern>
+    <template> <srai> TCHAU </srai> </template>
+  </category>
+
+  <category>
+    <pattern> ATE MAIS * </pattern>
+    <template> <srai> TCHAU </srai> </template>
+  </category>
+
+  <category>
+    <pattern> ATE MAIS </pattern>
+    <template> <srai> TCHAU </srai> </template>
+  </category>
+
+  <category>
+    <pattern> OBRIGADO </pattern>
+    <template>
+      <random>
+        <li>Sem problemas! Estou aqui para ajudar! De que mais vamos falar? </li>
+        <li>De nada! Estou aqui pra isso! Do que vamos falar agora </li>
+        <li>Tudo bem, não precisa agradecer! E então, vamos continuar nossa conversa? </li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern> MUITO OBRIGADO </pattern>
+    <template> <srai> OBRIGADO </srai> </template>
+  </category>
+
+  <category>
+    <pattern> MUITO OBRIGADO * </pattern>
+    <template> <srai> OBRIGADO </srai> </template>
+  </category>
+<!-- -->
+
+<!-- Topic -->
+<category>
+  <pattern> TOPIC </pattern>
+  <template> setTopic(<set name="topic"><star index="2"/></set>) </template>
+</category>
+  <category>
+    <pattern> _ FALAR SOBRE * </pattern>
+    <template> setTopic(<set name="topic"><star index="2"/></set>) </template>
+  </category>
+
+  <category>
+    <pattern> _ FALAR DE * </pattern>
+    <template> setTopic(<set name="topic"><star index="2"/></set>) </template>
+  </category>
+
+  <category>
+    <pattern> _ TEMA ATUAL * </pattern>
+    <template> getTopic() </template>
+  </category>
+<!-- -->
+
+<!-- Certezas Provisorias -->
+  <category>
+    <pattern> ADD CERTEZA </pattern>
+    <template> Ok, entendi o que você quis dizer. Vamos chamar isto de uma Certeza Provisória, OK? O que mais você pode me dizer? </template>
+  </category>
+
+  <category>
+    <pattern> _ SEI QUE * </pattern>
+    <template> <srai> ADD CERTEZA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ VALIDEI QUE * </pattern>
+    <template> <srai> ADD CERTEZA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ CONSTATEI QUE * </pattern>
+    <template> <srai> ADD CERTEZA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> CERTEZAS </pattern>
+    <template> listCertezas() </template>
+  </category>
+
+  <category>
+    <pattern> LISTE MINHAS CERTEZAS </pattern>
+    <template> <srai> CERTEZAS </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ LISTE MINHAS CERTEZAS </pattern>
+    <template> <srai> CERTEZAS </srai> </template>
+  </category>
+
+  <category>
+    <pattern> LISTE MINHAS CERTEZAS SOBRE * </pattern>
+    <template> listCertezas(<star index="1"/>) </template>
+  </category>
+
+  <category>
+    <pattern> _ LISTE MINHAS CERTEZAS SOBRE * </pattern>
+    <template> listCertezas(<star index="2"/>) </template>
+  </category>
+<!-- -->
+
+<!-- Duvidas Temporarias -->
+
+  <category>
+    <pattern> ADD DUVIDA </pattern>
+    <template> Ok, entendi o que você quis dizer. Vamos chamar isto de uma Dúvida Temporaria, OK? O que mais você pode me dizer? </template>
+  </category>
+
+  <category>
+    <pattern> _ ACHO QUE  * </pattern>
+    <template> <srai> ADD DUVIDA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ OUVI QUE  * </pattern>
+    <template> <srai> ADD DUVIDA </srai> </template>
+  </category>
+
+  <category>
+    <pattern> DUVIDAS </pattern>
+    <template> listDuvidas() </template>
+  </category>
+
+  <category>
+    <pattern> LISTE MINHAS DUVIDAS </pattern>
+    <template> <srai> DUVIDAS </srai> </template>
+  </category>
+
+  <category>
+    <pattern> _ LISTE MINHAS DUVIDAS </pattern>
+    <template> <srai> DUVIDAS </srai> </template>
+  </category>
+
+  <category>
+    <pattern> LISTE MINHAS DUVIDAS SOBRE * </pattern>
+    <template> listDuvidas(<star index="1"/>) </template>
+  </category>
+
+  <category>
+    <pattern> _ LISTE MINHAS DUVIDAS SOBRE * </pattern>
+    <template> listDuvidas(<star index="2"/>) </template>
+  </category>
+<!-- -->
+
+<!-- Pedindo ajuda pro Bot -->
+<category>
+  <pattern> SOLUCIONAR MINHAS DUVIDAS </pattern>
+  <template> A leitura de artigos científicos pode te ajudar! Que tal ler um artigo sobre o tema? Se quiser, posso te fazer uma recomendação. Enquanto isso, sobre o que vamos falar? </template>
+</category>
+
+<category>
+  <pattern> _ SOLUCIONAR MINHAS DUVIDAS * </pattern>
+  <template> <srai> SOLUCIONAR MINHAS DUVIDAS </srai> </template>
+</category>
+
+<category>
+  <pattern> _ SOLUCIONAR MINHAS DÚVIDAS * </pattern>
+  <template> <srai> SOLUCIONAR MINHAS DUVIDAS </srai> </template>
+</category>
+
+
+<!-- Google Scholar -->
+  <category>
+    <pattern> SCHOLAR * </pattern>
+    <template> getArticle(<star index="1"/>) </template>
+  </category>
+
+  <category>
+    <pattern> _ RECOMENDAR UM ARTIGO SOBRE * </pattern>
+    <template> getArticle(<star index="2"/>) </template>
+  </category>
+
+  <category>
+    <pattern> _ RECOMENDE UM ARTIGO SOBRE * </pattern>
+    <template> getArticle(<star index="2"/>) </template>
+  </category>
+
+<!-- -->
+
+<category>
+  <pattern>*</pattern>
+	<template>
+		<random>
+			<li>Não entendi o que você quis dizer, que tal me explicar novamente?</li>
+			<li>Me desculpe, você se importaria de me explicar melhor?</li>
+			<li>Isto não fez sentido pra mim, você poderia me explicar de outra forma?</li>
+		</random>
+	</template>
+</category>
+
+<category>
+	<pattern>BRAIN VERSION</pattern>
+	<template><program/></template>
+</category>
+
+<category>
+	<pattern>PROGRAM VERSION</pattern>
+	<template>
+		<program/>
+	</template>
+</category>
+
+<category>
+	<pattern>BRAIN BUILD</pattern>
+	<template>
+		<program><info>build</info></program>
+	</template>
+</category>
+
+<category>
+	<pattern>AIML MATCH LIMIT *</pattern>
+	<template>Match limit exceeded</template>
+</category>
+
+<category>
+	<pattern>AIML MATCH FAIL *</pattern>
+	<template>Match failed</template>
+</category>
+
+<category>
+    <pattern>RELOAD AIML</pattern>
+    <template>
+        <think>
+            <learn>./*.aiml</learn>
+        </think>
+    </template>
+</category>
+
+</aiml>
