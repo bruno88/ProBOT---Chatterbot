@@ -9,8 +9,9 @@ def sendMailOnError(errorMsg):
     server.starttls()
 
     # For Safety, password was stored on Environment Variables with:
-    # export SMTP_PWD="this is a secret password"
-    server.login("brunoclemente88@gmail.com", os.environ['SMTP_PWD'])
+    # export SMTP_EMAIL="this is a secret email"
+	# export SMTP_PWD="this is a secret password"
+    server.login(os.environ['SMTP_EMAIL'], os.environ['SMTP_PWD'])
 
     aux = "Ocorreu um erro no uso do chatterbot!\n "
     aux += "Mensagem de erro: {errorMsg}\n".format(errorMsg=errorMsg)
