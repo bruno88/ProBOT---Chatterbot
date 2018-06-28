@@ -15,6 +15,8 @@
 
 ### Contribution guidelines ###
 
+* Instruções de Uso: https://tinyurl.com/SWIProBOT
+
 ### Who do I talk to? ###
 
 * Bruno Gutierrez Ratto Clemente (brunoclemente88@gmail.com)
